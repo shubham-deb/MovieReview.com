@@ -1,0 +1,46 @@
+<div ng-include="'views/admin/templates/dashboard-header.view.client.html'">
+
+</div>
+
+<style>
+    .carousel-inner>.item>a>img {
+        width: 100%;
+        height: 500px;
+    }
+    @media (max-width: 767px) {
+
+        .carousel-inner > .item > a > img {
+            width: 100%;
+            height: 300px;
+        }
+    }
+
+
+
+</style>
+
+<!--<div ng-include="'views/common/loginbody.view.client.html'"></div>-->
+
+<div class="main-body" style="height: 100vh">
+    <div class="container">
+        <div class="page">
+            <div >
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li>Dashboard</li>
+                </ol>
+            </div>
+            <div class="content">
+
+                <h1>Dashboard</h1>
+                <h3>Current Website Users: {{model.users.length}}</h3>
+                <h3>Total Reviews Posted: {{model.reviews.length}}</h3>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

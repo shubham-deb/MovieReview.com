@@ -1,0 +1,25 @@
+<div class="profile-header row">
+    <div class="col-xs-12">
+        <div id="user-picture">
+            <img id="avatar" style="height: 145px;width: 120px" class="image"
+                 ng-src={{model.editUser.url}}>
+            <label for="profilePic" style="color: #337ab7;cursor: pointer;font-size: 10px">Change Picture</label>
+            <!--<div class="fake"><span><a href>Link!</a><input type='file' /><span>-->
+            <div>
+                <!--<label style="color:blue;cursor: pointer;" for="input">Edit</label>-->
+
+            </div>
+        </div>
+        <div id="user-details">
+            <h1 >{{model.editUser.username}}</h1>
+            <form action="/api/project/uploadProfileImage"   method="post" enctype="multipart/form-data">
+                <input  id="profilePic" style="display: none" name="myFile" ng-model="model.myFile"    type="file" class="form-control" onchange="form.submit()"/>
+                <input  name="userId"    value="{{model.editUser._id}}"   style="display: none"/>
+                <input name="callbackUrl" value="/#!{{model.editUser}}" style="display: none">
+
+            </form>
+
+
+        </div>
+    </div>
+</div>

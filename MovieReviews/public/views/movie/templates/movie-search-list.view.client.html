@@ -1,0 +1,30 @@
+<div ng-include="'views/common/templates/site-header.view.client.html'"></div>
+
+
+            <div ng-show="!model.search">
+                <div ng-include="'views/common/templates/no-results.view.client.html'"></div>
+
+            </div>
+<div ng-show="model.search">
+    <div class="main-body">
+        <div class="container">
+            <div class="page">
+
+
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li> <a href="#!/home">Home</a></li>
+                    <li class="active">Seaarch</li>
+                    <!--<li class="active">In Theatres</li>-->
+                </ol>
+            <h1>Search Results</h1>
+
+            <h2>Results for:"{{model.query }}"</h2>
+                <div ng-include="'views/common/templates/movie-list.view.client.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>

@@ -1,0 +1,86 @@
+<div ng-include="'views/admin/templates/dashboard-header.view.client.html'"></div>
+<style>
+
+    .costumDiv{
+        margin: 2px;
+        background-color: white;
+        text-align: left;
+        font-size:large;
+        margin-bottom: 5px;
+    }
+</style>
+
+<div class="main-body">
+    <div class="container">
+        <div class="page">
+            <div >
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li>Dashboard</li>
+                </ol>
+            </div>
+            <div class="content" ng-repeat="review in model.reviews" style="border-bottom: 3px solid #ccc">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+
+                        <div class="costumDiv">
+                            <h3>{{review.movieName}}</h3>
+                            <div class="stars" ng-show="model.editId===review._id">
+                                <form action="">
+
+                                    <label>Your Rating:</label>
+                                    <br/>
+
+                                    <input ng-model="review.rating" class="star star-5" id="stars-{{$index}}5" type="radio" name="star2" ng-value="'5'"/>
+                                    <label class="star star-5" for="stars-{{$index}}5"></label>
+
+                                    <input ng-model="review.rating" class="star star-4" id="stars-{{$index}}4" type="radio" name="star2" ng-value="'4'"/>
+                                    <label class="star star-4" for="stars-{{$index}}4"></label>
+
+                                    <input ng-model="review.rating" class="star star-3" id="stars-{{$index}}3" type="radio" name="star2" ng-value="'3'"/>
+                                    <label class="star star-3" for="stars-{{$index}}3"></label>
+
+                                    <input ng-model="review.rating" class="star star-2" id="stars-{{$index}}2" type="radio" name="star2" ng-value="'2'"/>
+                                    <label class="star star-2" for="stars-{{$index}}2"></label>
+
+                                    <input ng-model="review.rating" class="star star-1" id="stars-{{$index}}1" type="radio" name="star2" ng-value="'1'"/>
+                                    <label class="star star-1" for="stars-{{$index}}1"></label>
+
+                                    <!--<label for="review2">Your Review:</label>-->
+                                    <!--<textarea id="review2" class="form-control" rows="4" ng-model="review.text2" style="resize: vertical;">{{review.text}}</textarea>-->
+                                </form>
+                            </div>
+                            <div class="star-ratings-css" ng-hide="model.editId===review._id">
+                                <div class="star-ratings-css-top" ng-model="rating" ng-style="{'width':{{review.rating}}*(100/5)}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                            </div>
+                            <p ng-hide="model.editId===review._id" style="word-wrap: break-word">{{review.text}}</p>
+                            <textarea rows="3" ng-show="model.editId===review._id" ng-model="review.text" style="width:100%;resize: none">{{review.text}}</textarea>
+
+                        </div>
+
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="costumDiv"><a class="btn unfollow-btn btn-warning" ng-model="review._id" ng-hide="model.editId===review._id" ng-click="model.editId=review._id">Edit</a></div>
+                        <div class="costumDiv"><a class="btn unfollow-btn btn-warning" ng-model="review._id" ng-show="model.editId===review._id" ng-click="model.editId=''">Cancel</a></div>
+                    </div>
+
+                    <div class="col-xs-3 " >
+                        <div class="costumDiv"><a class="btn unfollow-btn btn-danger" ng-click="model.deleteReview(review.userId,review._id)">Delete</a></div>
+                    </div>
+                    <div class="col-xs-3 " >
+                        <div class="costumDiv"><a ng-show="model.editId===review._id" ng-click="model.editReview(review._id,review);model.editId=''" class="btn unfollow-btn btn-danger" >Update</a></div>
+                    </div>
+                    <div class="col-xs-3"></div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

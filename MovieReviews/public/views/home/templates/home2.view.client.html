@@ -1,0 +1,578 @@
+<div ng-include="'views/common/templates/site-header.view.client.html'">
+
+</div>
+
+<style>
+    .carousel-inner>.item>a>img {
+        width: 100%;
+        height: 500px;
+    }
+    @media (max-width: 767px) {
+
+        .carousel-inner > .item > a > img {
+            width: 100%;
+            height: 300px;
+        }
+    }
+
+
+
+</style>
+
+<!--<div ng-include="'views/common/loginbody.view.client.html'"></div>-->
+
+<div class="main-body">
+    <div class="container">
+        <div class="page">
+            <div >
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li>Home</li>
+                </ol>
+            </div>
+            <div class="row">
+
+                <!--Main display -->
+                <div id="main-page-content"class="col-md-9" >
+                    <div><h2>Upcoming Movies worth waiting for</h2></div>
+                    <!--<div id="homeSlider" class="carousel slide" data-interval="5000" >-->
+                        <!--<ol class="carousel-indicators">-->
+                            <!--<li data-target="#homeSlider" data-slide-to="0" class="active"></li>-->
+                            <!--<li data-target="#homeSlider" data-slide-to="1"></li>-->
+                            <!--<li data-target="#homeSlider" data-slide-to="2"></li>-->
+                            <!--<li data-target="#homeSlider" data-slide-to="3"></li>-->
+                            <!--<li data-target="#homeSlider" data-slide-to="4"></li>-->
+                            <!--<li data-target="#homeSlider" data-slide-to="5"></li>-->
+                            <!--<li data-target="#homeSlider" data-slide-to="6"></li>-->
+                            <!--<li data-target="#homeSlider" data-slide-to="7"></li>-->
+                            <!--<li data-target="#homeSlider" data-slide-to="8"></li>-->
+                            <!--<li data-target="#homeSlider" data-slide-to="9"></li>-->
+                        <!--</ol>-->
+                        <!--<div class="carousel-inner">-->
+                            <!--<div class="item active">-->
+                                <!--<a href="#!/movie/{{model.nowplayingmovies[10].id}}">-->
+                                    <!--<img src="{{model.nowplayingmovies[10].poster_path}}" alt="slide1"-->
+                                        <!--class="no-pad-bottom ">-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="item" ng-repeat="movie in model.nowplayingmovies | limitTo: 10">-->
+                                <!--<a href="#!/movie/{{movie.id}}">-->
+                               <!--<img src="{{movie.poster_path}}"  alt="slide1" class="no-pad-bottom ">-->
+                                <!--</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<a class="carousel-control left" href="#homeSlider"  data-slide="prev" target="_self">-->
+                            <!--<span class="icon-prev"></span>-->
+                        <!--</a>-->
+
+                        <!--<a class="carousel-control right" href="#homeSlider" data-slide="next" target="_self">-->
+                            <!--<span class="icon-next"></span>-->
+                        <!--</a>-->
+                    <!--</div>-->
+
+                        <div class="row">
+
+                            <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+                                <div id="mobileImageCarousel" class="carousel slide" data-interval="1000"
+                                     data-ride="carousel" data-wrap="true">
+
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#mobileImageCarousel" data-slide-to="0" class="active"></li>
+                                        <li data-target="#mobileImageCarousel" data-slide-to="1"></li>
+                                        <li data-target="#mobileImageCarousel" data-slide-to="2"></li>
+                                        <li data-target="#mobileImageCarousel" data-slide-to="3"></li>
+                                        <li data-target="#mobileImageCarousel" data-slide-to="4"></li>
+                                        <li data-target="#mobileImageCarousel" data-slide-to="5"></li>
+                                        <li data-target="#mobileImageCarousel" data-slide-to="6"></li>
+                                        <li data-target="#mobileImageCarousel" data-slide-to="7"></li>
+                                        <li data-target="#mobileImageCarousel" data-slide-to="8"></li>
+                                    </ol>
+
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <a href="#!movie/{{model.upcomingmovies[0].id}}" target="_blank">
+                                                <img src="{{model.upcomingmovies[0].poster_path}}" class="no-pad-bottom img-responsive">
+                                                <div class="carousel-caption">
+                                                    <!--<h3>Desert</h3>-->
+                                                    <p style="color: white">RATING:  {{model.upcomingmovies[0].vote_average}}></p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="item">
+                                            <a href="#!movie/{{model.upcomingmovies[1].id}}" target="_blank">
+                                                <img src="{{model.upcomingmovies[1].poster_path}}" class="no-pad-bottom img-responsive">
+                                                <div class="carousel-caption">
+                                                    <!--<h3>Jellyfish</h3>-->
+                                                    <p style="color: white">RATING:  {{model.upcomingmovies[1].vote_average}}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="item">
+                                            <a href="#!movie/{{model.upcomingmovies[2].id}}" target="_blank">
+                                                <img src="{{model.upcomingmovies[2].poster_path}}" class="no-pad-bottom img-responsive">
+                                                <div class="carousel-caption">
+                                                    <!--<h3>Lighthouse</h3>-->
+                                                    <p style="color: white">RATING:  {{model.upcomingmovies[2].vote_average}}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="item">
+                                            <a href="#!movie/{{model.upcomingmovies[3].id}}" target="_blank">
+                                                <img src="{{model.upcomingmovies[3].poster_path}}" class="no-pad-bottom img-responsive">
+                                                <div class="carousel-caption">
+                                                    <!--<h3>Penguins</h3>-->
+                                                    <p style="color: white">RATING:  {{model.upcomingmovies[3].vote_average}}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="item">
+                                            <a href="#!movie/{{model.upcomingmovies[4].id}}" target="_blank">
+                                                <img src="{{model.upcomingmovies[4].poster_path}}" class="no-pad-bottom img-responsive">
+                                                <div class="carousel-caption">
+                                                    <!--<h3>Penguins</h3>-->
+                                                    <p style="color: white">RATING:  {{model.upcomingmovies[4].vote_average}}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="item">
+                                            <a href="#!movie/{{model.upcomingmovies[5].id}}" target="_blank">
+                                                <img src="{{model.upcomingmovies[5].poster_path}}" class="no-pad-bottom img-responsive">
+                                                <div class="carousel-caption">
+                                                    <!--<h3>Penguins</h3>-->
+                                                    <p style="color: white">RATING:  {{model.upcomingmovies[5].vote_average}}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="item">
+                                            <a href="#!movie/{{model.upcomingmovies[6].id}}" target="_blank">
+                                                <img src="{{model.upcomingmovies[6].poster_path}}" class="no-pad-bottom img-responsive">
+                                                <div class="carousel-caption">
+                                                    <!--<h3>Penguins</h3>-->
+                                                    <p style="color: white">RATING:  {{model.upcomingmovies[6].vote_average}}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="item">
+                                            <a href="#!movie/{{model.upcomingmovies[7].id}}" target="_blank">
+                                                <img src="{{model.upcomingmovies[7].poster_path}}" class="no-pad-bottom img-responsive">
+                                                <div class="carousel-caption">
+                                                    <!--<h3>Penguins</h3>-->
+                                                    <p style="color: white">RATING:  {{model.upcomingmovies[7].vote_average}}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="item">
+                                            <a href="#!movie/{{model.upcomingmovies[8].id}}" target="_blank">
+                                                <img src="{{model.upcomingmovies[8].poster_path}}" class="no-pad-bottom img-responsive">
+                                                <div class="carousel-caption">
+                                                    <!--<h3>Penguins</h3>-->
+                                                    <p style="color: white">RATING:  {{model.upcomingmovies[8].vote_average}}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <a href="#mobileImageCarousel" class="carousel-control left" target="_self" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a href="#mobileImageCarousel" class="carousel-control right" target="_self" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-sm-12 hidden-xs">
+
+                                <div id="imageCarousel" class="carousel slide" data-interval="2000"
+                                     data-ride="carousel" data-wrap="true">
+
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                                        <li data-target="#imageCarousel" data-slide-to="1"></li>
+                                        <li data-target="#imageCarousel" data-slide-to="2"></li>
+                                    </ol>
+
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <div class="row">
+                                                <div class="col-xs-4">
+                                                    <a href="#!movie/{{model.upcomingmovies[0].id}}" target="_blank">
+                                                        <img src="{{model.upcomingmovies[0].poster_path}}" class="no-pad-bottom img-responsive">
+                                                        <div class="carousel-caption">
+                                                            <!--<span style="color: white">{{model.upcomingmovies[0].original_title}}</span>-->
+                                                            <p style="color: white">RATING:  {{model.upcomingmovies[0].vote_average}}
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <a href="#!movie/{{model.upcomingmovies[1].id}}" target="_blank">
+                                                        <img src="{{model.upcomingmovies[1].poster_path}}" class="no-pad-bottom img-responsive">
+                                                        <div class="carousel-caption">
+                                                            <!--<span style="color: white">{{model.upcomingmovies[1].original_title}}</span>-->
+                                                            <p style="color: white">RATING: {{model.upcomingmovies[1].vote_average}}
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <a href="#!movie/{{model.upcomingmovies[2].id}}" target="_blank">
+                                                        <img src="{{model.upcomingmovies[2].poster_path}}" class="no-pad-bottom img-responsive">
+                                                        <div class="carousel-caption">
+                                                            <!--<span style="color: white">{{model.upcomingmovies[2].original_title}}</span>-->
+                                                            <p style="color: white">RATING: {{model.upcomingmovies[2].vote_average}}
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="row">
+                                                <div class="col-xs-4">
+                                                    <a href="#!movie/{{model.upcomingmovies[3].id}}" target="_blank">
+                                                        <img src="{{model.upcomingmovies[3].poster_path}}" class="no-pad-bottom img-responsive">
+                                                        <div class="carousel-caption">
+                                                            <!--<span>{{model.upcomingmovies[3].original_title}}</span>-->
+                                                            <p style="color: white">RATING:  {{model.upcomingmovies[3].vote_average}}
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <a href="#!movie/{{model.upcomingmovies[4].id}}" target="_blank">
+                                                        <img src="{{model.upcomingmovies[4].poster_path}}" class="no-pad-bottom img-responsive">
+                                                        <div class="carousel-caption">
+                                                            <!--<span>{{model.upcomingmovies[4].original_title}}</span>-->
+                                                            <p style="color: white">RATING:  {{model.upcomingmovies[4].vote_average}}
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <a href="#!movie/{{model.upcomingmovies[5].id}}" target="_blank">
+                                                        <img src="{{model.upcomingmovies[5].poster_path}}" class="no-pad-bottom img-responsive">
+                                                        <div class="carousel-caption">
+                                                            <!--<span>{{model.upcomingmovies[5].original_title}}</span>-->
+                                                            <p style="color: white">RATING:  {{model.upcomingmovies[5].vote_average}}
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="row">
+                                                <div class="col-xs-4">
+                                                    <a href="#!movie/{{model.upcomingmovies[6].id}}" target="_blank">
+                                                        <img src="{{model.upcomingmovies[6].poster_path}}" class="no-pad-bottom img-responsive">
+                                                        <div class="carousel-caption">
+                                                            <!--<span>{{model.upcomingmovies[6].original_title}}</span>-->
+                                                            <p style="color: white">RATING:  {{model.upcomingmovies[6].vote_average}}
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <a href="#!movie/{{model.upcomingmovies[7].id}}" target="_blank">
+                                                        <img src="{{model.upcomingmovies[7].poster_path}}" class="no-pad-bottom img-responsive">
+                                                        <div class="carousel-caption">
+                                                            <!--<span>{{model.upcomingmovies[7].original_title}}</span>-->
+                                                            <p style="color: white">RATING:  {{model.upcomingmovies[7].vote_average}}
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <a href="#!movie/{{model.upcomingmovies[8].id}}" target="_blank">
+                                                        <img src="{{model.upcomingmovies[8].poster_path}}" class="no-pad-bottom img-responsive">
+                                                        <div class="carousel-caption">
+                                                            <!--<span>{{model.upcomingmovies[8].original_title}}</span>-->
+                                                            <p style="color: white">RATING:  {{model.upcomingmovies[8].vote_average}}
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="#imageCarousel" class="carousel-control left" data-slide="prev" target="_self">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a href="#imageCarousel" class="carousel-control right" data-slide="next" target="_self">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    <div class="row page-section page-section-header">
+                        <div><h3>Latest Movie Reviews</h3></div>
+                        <div ng-repeat="review in model.newsReviews|limitTo:2" class="col-sm-6 col-xs-12 ">
+                            <a class="review" href="#"></a>
+                            <figure>
+                                <img src="{{review.fields.thumbnail}}" alt="">
+                                <figcaption>{{review.webTitle.substr(0,review.webTitle.indexOf('review'))}}
+                                    <span>Review</span></span>
+                                    <div class="star-ratings-css" style="display: inline-block">
+                                        <div class="star-ratings-css-top" ng-style="{'width':{{review.fields.starRating}}*(100/5)}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                        <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                    </div>
+                                    <h5>{{review.webPublicationDate|date:'fullDate'}}</h5>
+                                </figcaption>
+
+                            </figure>
+
+                        </div>
+                        <div class="col-xs-12">
+                            <h5><a href="#!/news/latest_reviews">Watch the full list >></a></h5>
+                        </div>
+                    </div>
+
+                    <div class="row page-section page-section-header">
+                        <div><h3>Popular Movies of this Year</h3></div>
+                        <div ng-repeat="movie in model.trendingmovies|limitTo:4" class="col-sm-3 col-xs-12 ">
+                            <a class="review"></a>
+                            <a href="#!/movie/{{movie.id}}">
+                                <figure>
+                                    <img height="200" src="{{movie.poster_path}}" alt="">
+                                    <figcaption>{{review.webTitle.substr(0,review.webTitle.indexOf('review'))}}
+                                        <span>Rating: </span></span>
+                                        <div class="star-ratings-css" style="display: inline-block">
+                                            <div class="star-ratings-css-top" ng-style="{'width':{{movie.vote_average/2}}*(100/5)}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                            <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                        </div>
+                                        <h5>{{movie.release_date | date:'fullDate'}}</h5>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-xs-12">
+                            <h5><a href="#!/most-popular">Watch the full list >></a></h5>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+              <!--Side Bar Content-->
+               <div class="col-md-3 hidden-xs hidden-sm" style="background: #e6e6e6">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12">
+                            <div class="main-sidebar-section">
+                                <h5 class="sidebar-header">Now Playing</h5>
+                                <div class="rhs-body">
+
+                                    <!--implement ng-repeat on below div-->
+                                    <div class="rhs-row" ng-repeat="movie in model.nowplayingmovies |limitTo:5">
+                                        <div ng-hide="model.watchListMovies.indexOf(movie.id)>-1"
+                                             class="ribbonize" style="position: relative">
+                                            <a class="fa fa-plus" ng-click="model.bookmark(movie.id)"
+                                               style="font-size: 1.4em;color:lightslategrey;padding-top: 3px"> </a>
+                                        </div>
+                                        <div ng-show="model.watchListMovies.indexOf(movie.id)>-1"
+                                             class="ribbonize" style="position: relative">
+                                            <a class="fa fa-check" ng-click="model.removebookmark(movie.id)"
+                                               style="font-size: 1.4em;color:lightslategrey;padding-top: 3px"> </a>
+                                        </div>
+
+                                        <div class="title">
+                                            <a href="#!/movie/{{movie.id}}" target="_blank">{{movie.title}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="rhs-row">
+                                        <div class="ribbonize" style="position: relative">
+                                        </div>
+                                        <div class="title">
+                                           <h5> <a href="#!/now-playing" target="_blank">See the entire list>></a> </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main-sidebar-section">
+                                <h5 class="sidebar-header">Coming Soon</h5>
+                                <div class="rhs-body">
+
+                                    <!--implement ng-repeat on below div-->
+                                    <div class="rhs-row" ng-repeat="movie in model.upcomingmovies | limitTo:5">
+                                        <div ng-hide="model.watchListMovies.indexOf(movie.id)>-1"
+                                             class="ribbonize" style="position: relative">
+                                            <a class="fa fa-plus" ng-click="model.bookmark(movie.id)"
+                                               style="font-size: 1.4em;color:lightslategrey;padding-top: 3px"> </a>
+                                        </div>
+                                        <div ng-show="model.watchListMovies.indexOf(movie.id)>-1"
+                                             class="ribbonize" style="position: relative">
+                                            <a class="fa fa-check" ng-click="model.removebookmark(movie.id)"
+                                               style="font-size: 1.4em;color:lightslategrey;padding-top: 3px"> </a>
+                                        </div>
+
+                                        <div class="title">
+                                            <a href="#!/movie/{{movie.id}}" target="_blank">{{movie.title}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="rhs-row">
+                                        <div class="ribbonize" style="position: relative">
+                                        </div>
+                                        <div class="title">
+                                            <h5> <a href="#!/coming-soon" >See the entire list>></a> </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main-sidebar-section">
+                                <h5 class="sidebar-header">Most Popular</h5>
+                                <div class="rhs-body">
+
+                                    <!--implement ng-repeat on below div-->
+                                    <div class="rhs-row" ng-repeat="movie in model.popularmovies | limitTo:5">
+                                        <div ng-hide="model.watchListMovies.indexOf(movie.id)>-1"
+                                             class="ribbonize" style="position: relative">
+                                            <a class="fa fa-plus" ng-click="model.bookmark(movie.id)"
+                                               style="font-size: 1.4em;color:lightslategrey;padding-top: 3px"> </a>
+                                        </div>
+                                        <div ng-show="model.watchListMovies.indexOf(movie.id)>-1"
+                                             class="ribbonize" style="position: relative">
+                                            <a class="fa fa-check" ng-click="model.removebookmark(movie.id)"
+                                               style="font-size: 1.4em;color:lightslategrey;padding-top: 3px"> </a>
+                                        </div>
+
+                                        <div class="title">
+                                            <a href="#!/movie/{{movie.id}}">{{movie.title}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="rhs-row">
+                                        <div class="ribbonize" style="position: relative">
+                                        </div>
+                                        <div class="title">
+                                            <h5> <a href="#!/most-popular">See the entire list>></a> </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main-sidebar-section">
+                                <h5 class="sidebar-header">Top Rated</h5>
+                                <div class="rhs-body">
+
+                                    <!--implement ng-repeat on below div-->
+                                    <div class="rhs-row" ng-repeat="movie in model.topratedmovies | limitTo:5">
+                                        <div ng-hide="model.watchListMovies.indexOf(movie.id)>-1"
+                                             class="ribbonize" style="position: relative">
+                                            <a class="fa fa-plus" ng-click="model.bookmark(movie.id)"
+                                               style="font-size: 1.4em;color:lightslategrey;padding-top: 3px"> </a>
+                                        </div>
+                                        <div ng-show="model.watchListMovies.indexOf(movie.id)>-1"
+                                             class="ribbonize" style="position: relative">
+                                            <a class="fa fa-check" ng-click="model.removebookmark(movie.id)"
+                                               style="font-size: 1.4em;color:lightslategrey;padding-top: 3px"> </a>
+                                        </div>
+
+                                        <div class="title">
+                                            <a href="#!/movie/{{movie.id}}">{{movie.title}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="rhs-row">
+                                        <div class="ribbonize" style="position: relative">
+                                        </div>
+                                        <div class="title">
+                                            <h5> <a href="#!/top-rated">See the entire list>></a> </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div> <!-- .row -->
+
+
+
+
+            <!--<div class="row">-->
+                <!--<div class="col-md-4">-->
+                    <!--<h2 class="section-title">December premiere</h2>-->
+                    <!--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>-->
+                    <!--<ul class="movie-schedule">-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                    <!--</ul> &lt;!&ndash; .movie-schedule &ndash;&gt;-->
+                <!--</div>-->
+                <!--<div class="col-md-4">-->
+                    <!--<h2 class="section-title">November premiere</h2>-->
+                    <!--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>-->
+                    <!--<ul class="movie-schedule">-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                    <!--</ul> &lt;!&ndash; .movie-schedule &ndash;&gt;-->
+                <!--</div>-->
+
+
+                <!--<div class="col-md-4">-->
+                    <!--<h2 class="section-title">October premiere</h2>-->
+                    <!--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>-->
+                    <!--<ul class="movie-schedule">-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="date">16/12</div>-->
+                            <!--<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>-->
+                        <!--</li>-->
+                    <!--</ul> &lt;!&ndash; .movie-schedule &ndash;&gt;-->
+                <!--</div>-->
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>

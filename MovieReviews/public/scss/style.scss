@@ -1,0 +1,24 @@
+$images: ('images/backgroundImg/cars_3.jpg');
+
+$img: nth($images, random(length($images)));
+
+body {
+  margin: 0;
+  background-image: url($img);
+}
+
+//.rando-calrissian{
+//  background: url($img) top center no-repeat;
+//  height: 1000px;
+//  width: 1000px;
+//  padding: 1em;
+//  margin: 0 auto;
+//  border: 3px solid #999999;
+//
+//  & h2{
+//    background: #FF0000;
+//    color: #FFFFFF;
+//    text-align: center;
+//    margin: 0;
+//  }
+//}

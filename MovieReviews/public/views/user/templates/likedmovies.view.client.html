@@ -1,0 +1,62 @@
+<div ng-include="'views/common/templates/site-header.view.client.html'">
+
+</div>
+
+<div class="main-body">
+    <div class="container">
+        <div class="page">
+            <div >
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li> <a href="#!/home">Home</a></li>
+                    <li><a href="#!/profile">Profile</a></li>
+                    <li class="active">Likes</li>
+                </ol>
+            </div>
+            <div class="content">
+                <!--<h1> Profile Page </h1>-->
+                <div ng-include="'views/common/templates/profile-header.view.client.html'">
+
+                </div>
+                <div class="profile-content row">
+                    <!--<h2>Profile page</h2>-->
+                    <div class="col-sm-8">
+                        <div class="profile-section row">
+                            <h1 class="profile-section-header">Your Likes</h1>
+                            <div class="row subsection" ng-repeat="movie in model.likedmovies">
+                                <div class="col-sm-4 hidden-xs">
+                                    <img src="{{movie.poster_path}}"/>
+                                </div>
+                                <div class="col-sm-8 col-xs-12">
+                                    <a href="#!/movie/{{movie.id}}"> <span style="font-size: 20px">{{movie.title}} </span> </a>
+                                    <span style="font-size: 20px">({{movie.release_date.split("-")[0]}})</span>
+                                    <p>{{movie.vote_average}} <span>({{movie.vote_count}} votes)</span></p>
+                                    <span style="font-size: inherit">{{movie.overview}}</span>
+                                    <div>
+                                        <strong>Genres:</strong>
+                                        <span ng-repeat="genre in movie.genres">
+                                        {{genre.name}}<span ng-show=" ! $last ">,</span>
+                                        </span>
+                                    </div>
+                                    <button class="btn unfollow-btn btn-danger " ng-click="model.deleteLikedMovie(movie.id)">
+                                        Delete
+                                    </button>
+                                </div>
+
+
+                            </div>
+                            <div ng-hide="model.likedmovies">
+                                <h1 style="text-align: center" > Your likes are currently empty</h1>
+                                <div style="align-content: center"><span class=""></span></div>
+                                <h3 style="text-align: center"> <a href="#/home">Explore</a> to get started</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-include="'views/common/templates/profile-sidebar.view.client.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>

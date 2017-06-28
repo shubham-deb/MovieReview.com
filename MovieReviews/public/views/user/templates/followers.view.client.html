@@ -1,0 +1,53 @@
+<div ng-include="'views/common/templates/site-header.view.client.html'">
+
+</div>
+
+<div class="main-body">
+    <div class="container">
+        <div class="page">
+            <div >
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li> <a href="#!/home">Home</a></li>
+                    <li><a  href="#!/profile">Profile</a></li>
+                    <li class="active">Followers</li>
+                </ol>
+            </div>
+            <div class="content">
+                <!--<h1> Profile Page </h1>-->
+                <div ng-include="'views/common/templates/profile-header.view.client.html'">
+
+                </div>
+                <div class="profile-content row">
+                    <!--<h2>Profile page</h2>-->
+                    <div class="col-sm-8">
+                        <div class="profile-section row">
+                            <h1 class="profile-section-header">Followers</h1>
+                            <div class="row profile-sub-section" ng-repeat="follower in model.user.followers">
+                                <div class="col-xs-4 col-sm-3 profile ">
+                                    <object data="{{follower.url}}" width=200 height=200>
+                                        <img src="../../../images/profile.png" alt="Just testing.">
+                                    </object>
+                                </div>
+                                <div class="col-xs-8 col-sm-9 ">
+                                    <h3> {{follower.username}} </h3>
+                                </div>
+
+
+                            </div>
+                            <div ng-hide="model.movies">
+                                <h1 style="text-align: center" > Your Watchlist is currently empty</h1>
+                                <div style="align-content: center"><span class=""></span></div>
+                                <h3 style="text-align: center"> <a href="#/home">Explore</a> to get started</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-include="'views/common/templates/profile-sidebar.view.client.html'"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>

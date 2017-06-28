@@ -1,0 +1,63 @@
+<div ng-include="'views/admin/templates/dashboard-header.view.client.html'"></div>
+<style>
+    .costumDiv{
+        margin: 2px;
+        background-color:white;
+        text-align: center;
+        font-size:large;
+        margin-bottom: 5px;
+    }
+
+</style>
+
+<div class="main-body" style="height: 100vh">
+    <div class="container">
+        <div class="page">
+            <div >
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li>Dashboard</li>
+                </ol>
+            </div>
+            <div class="content" >
+                <div class="row">
+                    <div class="col-sm-4 hidden-xs">
+                        <div class="costumDiv"><h3>Username</h3></div>
+                    </div>
+                    <div class="col-sm-4 hidden-xs">
+                        <div class="costumDiv"><h3>User Id</h3></div>
+                    </div>
+                    <div class="col-sm-2 hidden-xs">
+                        <div class="costumDiv"><h3>Edit</h3></div>
+                    </div>
+                    <div class="col-sm-2 hidden-xs" >
+                        <div class="costumDiv"><h3>Delete</h3></div>
+                    </div>
+                </div>
+            </div>
+            <div class="content" ng-repeat="user in model.users" style="margin-bottom: 5px;border-bottom: 3px solid #ccc">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="costumDiv"><a href="#!/admin/user/{{user._id}}">{{user.username}}</a></div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="costumDiv"><a href="#!/admin/user/{{user._id}}">{{user._id}}</a></div>
+                    </div>
+                    <div class="col-sm-2 col-xs-4">
+                        <div class="costumDiv"><a href="#!/admin/user/{{user._id}}" class="btn btn-warning">Edit</a></div>
+                    </div>
+                    <div class="col-sm-2 col-xs-4" >
+                        <div class="costumDiv"><a class="btn btn-danger" ng-click="model.deleteUser(user._id)">Delete</a></div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

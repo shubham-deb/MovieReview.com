@@ -1,0 +1,111 @@
+<div ng-include="'views/common/templates/site-header.view.client.html'">
+
+</div>
+
+<div class="main-body">
+    <div class="container">
+        <div class="page">
+            <div >
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li> <a href="#!/home">Home</a></li>
+                    <li><a href="#!/profile">Profile</a></li>
+                    <li class="active">Account Setting</li>
+                </ol>
+            </div>
+            <div class="content">
+                <!--<h1> Profile Page </h1>-->
+                <div ng-include="'views/common/templates/profile-header.view.client.html'">
+
+                </div>
+                <div class="profile-content row">
+                    <!--<h2>Profile page</h2>-->
+                    <div class="col-sm-8">
+                        <div class="profile-section row">
+                            <h1 class="profile-section-header">Personal Information</h1>
+
+                                    <h3 ng-show="model.updateSuccess">{{model.updateSuccess}}</h3>
+
+
+
+                                    <div ng-show="model.message" class="alert alert-danger"><h3> {{model.message}}</h3></div>
+                                    <form name="personalInfo"  class="form-horizontal info-form" role="form" novalidate>
+                                        <div >
+                                            <label for="txtUsername">Username</label>
+                                            <input ng-disabled="true" ng-model="model.user.username" id="txtUsername" class="form-control" type="text" placeholder="user name" >
+                                        </div>
+
+                                        <div >
+                                            <label for="txtEmail">Email</label>
+                                            <input name="email" ng-model="model.user.email" id="txtEmail" class="form-control" type="email" placeholder="Email" required>
+                                            <div ng-show="personalInfo.email.$error.required && personalInfo.email.$dirty"><h6 class="warning-text">Required</h6></div>
+                                        </div>
+
+                                        <div >
+                                            <label for="txtFirstname">First Name</label>
+                                            <input ng-model="model.user.firstName" id="txtFirstname" class="form-control" type="text" placeholder="First Name">
+                                        </div>
+
+                                        <div >
+                                            <label for="txtLastname">Last Name</label>
+                                            <input ng-model="model.user.lastName" id="txtLastname" class="form-control" type="text" placeholder="Last Name">
+                                        </div>
+
+                                            <a class="btn btn-info btn-block" ng-click="personalInfo.$valid &&  model.updateUser()">Update Info</a>
+
+
+                                        <a class="btn btn-block btn-danger" ng-click="model.deleteUser(model.user)">Delete Profile</a>
+
+                                    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                        <div class="profile-section" ng-if="model.user.password && model.user.username">
+                            <h1 class="profile-section-header">Change Password</h1>
+                            <h3 ng-show="model.pwdUpdateSuccess">{{model.pwdUpdateSuccess}}</h3>
+                            <h3 ng-show="model.pwdUpdateFailure">{{model.pwdUpdateFailure}}</h3>
+                            <!--<p>Loved or hated a movie or TV show? Write a review and share it with others!</p>-->
+                            <div ng-show="model.message" class="alert alert-danger"><h3> {{model.message}}</h3></div>
+                            <form class="form-horizontal info-form" name="changePwd" novalidate>
+
+                                <label for="txtCurrentPwd">Current Password</label>
+                                <input name="curPwd"  ng-model="model.curPwd" id="txtCurrentPwd" class="form-control" type="password" placeholder="Current Password" required>
+                                <div ng-show="changePwd.curPwd.$error.required && changePwd.curPwd.$dirty"><h6 class="warning-text">Required</h6></div>
+
+                                <label for="txtNewPwd">New Password</label>
+                                <input name="newPwd" ng-model="model.newPwd" id="txtNewPwd" class="form-control" type="password" placeholder="New Password" required>
+                                <div ng-show="changePwd.newPwd.$error.required && changePwd.newPwd.$dirty"><h6 class="warning-text">Required</h6></div>
+
+                                <label for="txtConfirmPwd">Confirm New Password</label>
+                                <input name="confirmPwd" ng-change="model.checkPassword()" ng-model="model.confirmPwd" id="txtConfirmPwd" class="form-control" type="password" placeholder="Confirm New Password" required>
+                                <div ng-show="changePwd.confirmPwd.$error.required && changePwd.confirmPwd.$dirty"><h6 class="warning-text">Required</h6></div>
+                                <div ng-show="model.pwdMismatch"><h6 class="warning-text">Password Doesnot Match</h6></div>
+                                <a class="btn btn-info btn-block" ng-click="changePwd.$valid && model.changePassword(model.newPwd,model.curPwd);form.$setPristine()">Submit</a>
+
+
+
+                            </form>
+
+
+                        </div>
+
+                    </div>
+                    <div ng-include="'views/common/templates/profile-sidebar.view.client.html'"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>
