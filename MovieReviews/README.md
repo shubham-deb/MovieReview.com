@@ -1,3 +1,4 @@
+# File Structure
 * public/config.js
   *  configures the angular application routing and used the routing provider to map the routerLink to the components.
 * public/services ( Each service provides CRUD operations to manipulate the corresponding entity: create, read, update, and delete.)
