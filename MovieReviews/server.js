@@ -26,4 +26,4 @@ app.use(app.express.static(__dirname + '/public'));
 // require('./public/app');
 // require('./public/mongo/app');
 require("./server/app");
-app.listen(process.env.PORT || 5555);
+app.listen(process.env.PORT || 5500);

@@ -1,0 +1,93 @@
+<div ng-include="'views/admin/templates/dashboard-header.view.client.html'"></div>
+
+<style>
+
+    .costumDiv{
+        margin: 2px;
+        background-color: silver;
+        text-align: center;
+        font-size:large;
+    }
+</style>
+
+<div class="main-body" style="height: 100vh">
+    <div class="container">
+        <div class="page">
+            <div >
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li>Dasboard</li>
+                    <li>Create User</li>
+                </ol>
+            </div>
+            <div ng-show="model.error">{{model.error}}</div>
+            <div class="content">
+
+                    <h3 style="color: green" ng-show="model.successMessage">{{model.successMessage}}</h3>
+                <form name="personalInfo"  class="form-horizontal info-form" role="form" novalidate>
+                    <div >
+                        <label for="txtUsername">Username</label>
+                        <input id="txtUsername" ng-model="model.username" id="txtUsername" class="form-control" type="text" placeholder="user name" required>
+                        <div ng-show="personalInfo.username.$error.required && personalInfo.username.$dirty"><h6 class="warning-text">Required</h6></div>
+                    </div>
+
+                    <div >
+                        <label for="txtEmail">Email</label>
+                        <input name="email" ng-model="model.email" id="txtEmail" class="form-control" type="email" placeholder="Email" required>
+                        <div ng-show="personalInfo.email.$error.required && personalInfo.email.$dirty"><h6 class="warning-text">Required</h6></div>
+                    </div>
+
+                    <div>
+                        <label for="role">Role</label>
+                        <select  id="role"  ng-model="model.attribute" name="attr" >
+                            <option ng-selected="model.attribute == 'user'" value='user'>user</option>
+                            <option ng-selected="model.attribute == 'admin'" value='admin'>admin</option>
+                            <option ng-selected="model.attribute == 'critic'" value='critic'>critic</option>
+                        </select>
+                    </div>
+
+                    <div >
+                        <label for="txtFirstname">First Name</label>
+                        <input ng-model="model.firstName" id="txtFirstname" class="form-control" type="text" placeholder="First Name">
+                    </div>
+
+                    <div >
+                        <label for="txtLastname">Last Name</label>
+                        <input ng-model="model.lastName" id="txtLastname" class="form-control" type="text" placeholder="Last Name">
+                    </div>
+
+                    <div >
+                        <input type="password" name="password" ng-model="model.rpwd" id="password" tabindex="2" class="form-control" placeholder="Password" required/>
+                        <div ng-show="registerForm.password.$error.required && registerForm.password.$dirty"><h6 class="warning-text">Required</h6></div>
+                    </div>
+
+                    <div>
+                        <input type="password" ng-change="model.checkPassword()" name="confirm-password" ng-model="model.rvpwd" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" required/>
+                        <div ng-show="registerForm.confirm-password.$error.required && registerForm.confirm-password.$dirty"><h6 class="warning-text">Required</h6></div>
+                        <div ng-show="model.pwdMismatch"><h6 class="warning-text">Password Doesnot Match</h6></div>
+                    </div>
+
+                    <a class="btn btn-info btn-block" ng-click="personalInfo.$valid &&  model.register(model.username,model.attribute,model.firstName,
+                                                                                                    model.lastName,model.email,model.rpwd,model.rvpwd)">Update Info</a>
+
+
+
+                </form>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

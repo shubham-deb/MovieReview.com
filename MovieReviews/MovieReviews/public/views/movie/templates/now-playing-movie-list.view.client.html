@@ -1,0 +1,24 @@
+<div ng-include="'views/common/templates/site-header.view.client.html'"></div>
+
+<div class="main-body">
+    <div class="container">
+        <div class="page">
+            <div >
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li> <a href="#!/home">Home</a></li>
+                    <li class="active">Now Playing</li>
+                    <!--<li class="active">In Theatres</li>-->
+                </ol>
+            </div>
+            <h1>Now Playing</h1>
+
+            <h2>Most Popular Now Playing Movies</h2>
+
+            <div ng-include="'views/common/templates/movie-list.view.client.html'"></div>
+
+        </div>
+    </div>
+</div>
+
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>

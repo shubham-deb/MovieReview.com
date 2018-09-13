@@ -10,6 +10,14 @@
         model.logout = logout;
         model.redirectTo=redirectTo;
         model.searchMovie  = searchMovie;
+
+        function init() {
+
+            return NewsService.getTopNews().then(function (news) {
+                model.allNews= news;
+            })
+        }init();
+
         function redirectTo(url) {
             $window.open(url);
         }
@@ -23,12 +31,6 @@
         function searchMovie(query) {
             $location.url('/movie/search/'+query);
         }
-        function init() {
-
-           return NewsService.getTopNews().then(function (news) {
-               model.allNews= news;
-            })
-        }init();
 
         // function getAllNews() {
         //    return

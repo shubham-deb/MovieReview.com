@@ -11,6 +11,14 @@
         model.redirectTo=redirectTo;
         model.searchMovie = searchMovie;
 
+
+        function init() {
+
+            return NewsService.getTalkingPoints().then(function (talkingPoints) {
+                model.talkingPoints = talkingPoints;
+            })
+        }init();
+
         function redirectTo(url) {
             $window.open(url);
         }
@@ -24,13 +32,6 @@
         function searchMovie(query) {
             $location.url('/movie/search/'+query);
         }
-        //var url ='http://newsapi.org/v1/articles?source=techcrunch&apiKey=e652550722294cb5b5ef87e76ae5e2f3';
-        function init() {
-
-            return NewsService.getTalkingPoints().then(function (talkingPoints) {
-                model.talkingPoints = talkingPoints;
-            })
-        }init();
 
         // function getAllNews() {
         //    return

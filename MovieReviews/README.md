@@ -1,27 +1,22 @@
-# Features of my Project
-  * Website is Responsive i.e. must be usable in a desktop, tablet or phone.
-  * Home page
-    * This is the landing page of your project.
-  * Login / Register
-    * allow users to register and login. 
-    * Users should be able to use the Web site without login in. 
-    * Only when accessing private or sensitive information, does the application force users to login. 
-      Or if the Web application needs to know the identity of the user to execute an action. 
-     * Allows users to login with credentials from third parties such as Google or Facebook
-  * Profile
-    * allows users to edit personal information and navigate to objects related to the user, 
-      e.g., users they are following, their personal movie prefernces and movie bookmarks.Profiles can have a public and a private version
-  * Search / Search Results
-    * allows users to search for movies. Results are shown as a summarized list. 
-    * Clicking on a search result navigates to a details page for the movie. 
-    * Retrieves data from a public Web service such as TMDb. 
-    * Users are able to see a summary of the search results and navigate to a detail page that shows a detail view of the result.
-  * Details Page
-    * shows a detailed view of a movie e.g., a movie shows it's trailer, description, rating, and reviews by users and much more. 
-    * Clicking on the user that posted the review navigates to that user's profile.
-  * Social Networking
-    * provides social networking features such as discovering other users, following other users, replying to other's comments, sharing a subset of profile/personal information, inviting other users
-  * Web Service
-    * used public Web services such as TMDb for fetching movies, NYTimes for fetching movie critic reviews and theGuardian for fetching latest movie news
-  * User Management 
-    * a user with admin credentials, e.g., admin/admin, must be able to create, update, and remove all other users. They should also be able to see a list of all the users in the system. Admin users should be able to search for a user and then view and update the details for that user. The navigation should adapt depending on the whether a user is admin or not, and depending on their role in the application
+# File Structure
+* public/config.js
+  *  configures the angular application routing and used the routing provider to map the routerLink to the components.
+* public/services ( Each service provides CRUD operations to manipulate the corresponding entity: create, read, update, and delete.)
+  * movie.service.client.js
+    * This angular service will send asynchronous HTTP requests using Angular Http service to the TMDB Web Service to fetch movies and           related information.
+  * news.service.client.js
+    * This angular service will send asynchronous HTTP requests using Angular Http service to the theGuardian Web Service to fetch news         related to the movies.
+  * user.service.client.js
+    * This angular service will send asynchronous HTTP requests to fetch users from the user model.
+* server.js
+  * imports libraries used for session management, JSON parsing etc and hosts the website.
+* model
+  * review.model.server.js/ user.model.server.js
+    * contains the schema and the functions used to do CRUD operations on the data.
+* public/views
+  * contains each component which is treated as a mini Angular app
+  * The components folder contains the actual sections for my Angular app. These will be the static views ,directives and services for         that specific section of the site (think an admin users section, gallery creation section, etc). 
+  * Each page has it's own subfolder with it's own controller, services, and HTML files.
+  * Each component here resembles a mini-MVC application by having a view, controller and potentially services file(s).
+* index.html
+  * The index.html file primarily handles loading in all the libraries and Angular elements.
