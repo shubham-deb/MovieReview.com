@@ -1,0 +1,69 @@
+<style>
+	@media screen and (max-width: 768px) {
+		h1{
+			font-size:22px;
+		}
+	}
+
+</style>
+
+<div ng-include="'views/common/templates/site-header.view.client.html'">
+
+</div>
+
+	
+	<main class="main-body">
+		<div class="container">
+			<div class="page">
+				<div >
+					<div class="go-back"><a go-back>Go Back</a></div>
+					<ol class="breadcrumb">
+						<li> <a href="#!/home">Home</a></li>
+						<li class="active">News</li>
+						<li class="active">Top News</li>
+					</ol>
+				</div>
+
+				<div class="content">
+				<h2>Top News</h2>
+					<div ng-repeat="news in model.allNews"  style="border-bottom: 1px solid #dfdfdf; margin-top: 25px">
+						<div class="hidden-xs row">
+							<div class="col-sm-4 ">
+							<img class="img-responsive" src="{{news.fields.thumbnail}}" style="float:left; margin-bottom: 10px ">
+							</div>
+							<div class="col-sm-8">
+								<a ng-click="model.redirectTo(news.fields.shortUrl)"><h3 class="section-title text-left "  >{{news.webTitle}}</h3></a>
+								<h3>{{news.webPublicationDate|date:'fullDate'}}</h3>
+								<p class="text-left hidden-xs">{{news.fields.trailText}}</p>
+								<p>-{{news.fields.byline}}</p>
+							</div>
+
+
+						</div>
+						<div class=" hidden-lg hidden-md hidden-sm" >
+							<a ng-click="model.redirectTo(news.fields.shortUrl)" >
+								<img class="img-responsive" src="{{news.fields.thumbnail}}" style="float:left; margin-right: 8px; margin-bottom: 20px; max-height: 80%">
+								<h1 class="section-title text-left hidden-lg hidden-md hidden-sm" style="font-size: 22px" >
+									{{news.webTitle}}
+								</h1>
+								<h5>{{news.webPublicationDate|date:'fullDate'}}</h5>
+
+							</a>
+
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div> <!-- .container -->
+	</main>
+
+	<div ng-include="'views/common/templates/footer.view.client.html'"></div>
+
+</div>
+
+	<script src="../../../js/jquery-1.11.1.min.js"></script>
+	<script src="../../../js/plugins.js"></script>
+	<script src="../../../js/app.js"></script>
