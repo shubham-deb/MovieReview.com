@@ -7,8 +7,6 @@ var reviewModel = require('../../model/review/review.model.server');
 app.post('api/project/createReview',createReview);
 app.delete('api/project/deleteReview/:reviewId',deleteReview);
 app.put('api/project/editReview/:reviewId',editReview);
-app.get('api/project/getReview/:userId',getReview);
-app.get('api/project/getAllReviews/:reviewId',getAllReviews);
 //----------------------------------------------
 
 function createReview(req,res) {
@@ -36,22 +34,6 @@ function editReview(req,res) {
         .then(function () {
             res.sendStatus(200);
         })
-}
-
-function getReview(req,res) {
-    var userId = req.params['userId'];
-    reviewModel.getUserReview(userId)
-        .then(function () {
-            res.sendStatus(200);
-        });
-}
-
-function getAllReviews(req,res) {
-    var userId = req.params['userId'];
-    reviewModel.getUserReviews(userId)
-        .then(function () {
-            res.sendStatus(200);
-        });
 }
 
 
