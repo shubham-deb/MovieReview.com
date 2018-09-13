@@ -1,0 +1,44 @@
+
+
+<div class="site-header">
+    <div class="container">
+        <!-- #branding -->
+        <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-top: 15px;">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand pull-left" href="#!/admin/dashboard">
+                        <img src="../../../images/website-logo.jpg" style="height: 50px;padding: 0 0 0 10px;" alt="Dispute Bills">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#!/admin/dashboard">Dashboard<span class="sr-only">(current)</span></a></li>
+                        <li><a href="#!/home">Website<span class="sr-only">(current)</span></a></li>
+                        <li><a href="#!/admin/dashboard/edit_users">Edit Users<span class="sr-only">(current)</span></a></li>
+                        <li><a href="#!/admin/dashboard/reviews">Reviews</a></li>
+                        <li><a href="#!/admin/dashboard/create_user">Create User</a></li>
+                        <!--<li ><a ng-click="showLoginModel()" data-target="#myLoginModal" data-toggle="modal" >Login</a></li>-->
+                        <li ng-if="!model.isLoggedIn._id"><a href="#!/login">Login</a></li>
+                        <li ng-if="model.isLoggedIn._id"><a ng-click="model.logout()">Logout</a></li>
+
+                        <!--<li ng-if="model.isLoggedIn._id"><a href="#!/profile">Profile</a></li>-->
+
+
+
+
+                    </ul>
+
+
+                </div><!-- /.navbar-collapse -->
+        </nav>
+
+    </div>
+
+</div>
+<div ng-include="'views/common/templates/login.view.client.html'"></div>
+</header>

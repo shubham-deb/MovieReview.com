@@ -1,0 +1,69 @@
+<div ng-include="'views/common/templates/site-header.view.client.html'">
+
+</div>
+
+<div class="main-body">
+    <div class="container">
+        <div class="page">
+            <div >
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li> <a href="#!/home">Home</a></li>
+                    <li><a  href="#!/profile">Profile</a></li>
+                    <li class="active">Followers</li>
+                </ol>
+            </div>
+            <div class="content">
+                <!--<h1> Profile Page </h1>-->
+                <div ng-include="'views/common/templates/profile-header.view.client.html'">
+
+                </div>
+                <div class="profile-content row">
+                    <!--<h2>Profile page</h2>-->
+                    <div class="col-sm-8">
+                        <div class="profile-section row">
+                            <h1 class="profile-section-header">Followers</h1>
+                            <div class="row profile-sub-section" ng-repeat="follower in model.user.followers">
+
+                                <div class="col-xs-12">
+                                    <div id="user-picture">
+                                        <img style="height: 145px;width: 120px" class="image"
+                                             ng-src="{{follower.url}}" onerror="this.src='../../../images/profile.jpg'">
+                                        <div>
+                                            <!--<label style="color:blue;cursor: pointer;" for="input">Edit</label>-->
+
+                                        </div>
+                                    </div>
+                                    <div class="user-details">
+                                        <h1>{{follower.username}}</h1>
+                                    </div>
+                                </div>
+
+
+
+                                <!--<div class="col-xs-12  profile ">-->
+                                   <!--<div class="col-xs-5"><img id="avatar" style="height: 145px;width: 120px"-->
+                                                              <!--ng-src="{{follower.url}}" onerror="this.src='../../../images/profile.jpg'">-->
+                                   <!--</div>-->
+
+                                    <!--&lt;!&ndash;<object data="{{follower.url}}" width=200 height=200>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<img src="../../../images/profile.png" alt="Just testing.">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</object>&ndash;&gt;-->
+
+                                   <!--<div class="col-xs-7"> <h3> {{follower.username}} </h3></div>-->
+                                <!--</div>-->
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div ng-include="'views/common/templates/profile-sidebar.view.client.html'"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>

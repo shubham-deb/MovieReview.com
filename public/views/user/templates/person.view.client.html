@@ -1,0 +1,161 @@
+<div ng-include="'views/common/templates/site-header.view.client.html'">
+
+</div>
+
+<div class="main-body">
+    <div class="container">
+        <div class="page">
+            <div >
+                <div class="go-back"><a go-back>Go Back</a></div>
+                <ol class="breadcrumb">
+                    <li> <a href="#!/home">Home</a></li>
+                    <li ><a href="#!/profile">Profile</a></li>
+                    <li class="active">{{model.person.username}}</li>
+
+                </ol>
+            </div>
+            <div class="content">
+                <!--<h1> Profile Page </h1>-->
+                <div class="profile-header row">
+                    <div class="col-xs-12">
+                        <div id="user-picture">
+                           <p> <img id="avatar" style="height: 145px;width: 120px" class="image"
+                                 ng-src={{model.person.url}}>
+                            <!--<div class="fake"><span><a href>Link!</a><input type='file' /><span>-->
+                            <div>
+                                <!--<label style="color:blue;cursor: pointer;" for="input">Edit</label>-->
+
+                            </div>
+                        </div>
+                        <div id="user-details">
+                            <h1>{{model.person.username}}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-content row">
+                    <!--<h2>Profile page</h2>-->
+                    <div class="col-sm-8">
+                        <div class="profile-section row">
+                            <h1 class="profile-section-header">Watchlist</h1>
+
+
+                           <div  ng-show="model.movies">
+                               <div id="demoWatchlist" class="row image-list" ng-hide="model.showWatchlist">
+                                   <div class="col-xs-4"><img src="{{model.movies[0].poster_path}}" alt="image 1">
+                                   </div>
+                                   <div ng-show="model.movies[1].poster_path" class="col-xs-4">
+                                       <img src="{{model.movies[1].poster_path}}" alt="image 2">
+                                   </div>
+                                   <div ng-show="model.movies[2].poster_path" class="col-xs-4">
+                                       <img src="{{model.movies[2].poster_path}}" alt="image 3">
+                                   </div>
+                               </div>
+                               <div class="see-more">
+                                   <h5><span><a ng-click="model.expandWatchlist()" data-toggle="collapse" href="#watchlist" target="_self" aria-expanded="false" aria-controls="watchlist">See all ></a></span></h5>
+                               </div>
+                           </div>
+                            <div class="collapse" id="watchlist" >
+                                <div class="subsection" ng-repeat="movie in model.movies">
+                                    <div class=" row " >
+                                        <div class="col-sm-4 hidden-xs">
+                                            <img src="{{movie.poster_path}}"/>
+                                        </div>
+                                        <div class="col-sm-8 col-xs-12">
+                                            <a href="#!/movie/{{movie.id}}"> <span style="font-size: 20px">{{movie.title}} </span> </a>
+                                            <span style="font-size: 20px">({{movie.release_date.split("-")[0]}})</span>
+                                            <p>{{movie.vote_average}} <span>({{movie.vote_count}} votes)</span></p>
+                                            <span style="font-size: inherit">{{movie.overview}}</span>
+                                            <div>
+                                                <strong>Genres:</strong>
+                                                <span ng-repeat="genre in movie.genres">
+                                        {{genre.name}}<span ng-show=" ! $last ">,</span>
+                                        </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div ng-hide="model.movies">
+                                <p> watchlist is empty.</p>
+                            </div>
+                        </div>
+
+                        <div ng-show="model.userreviews" class="profile-section">
+                            <h1 class="profile-section-header">Reviews</h1>
+                            <p>Read all {{model.userreviews.length}} reviews </p>
+                            <div class="see-more">
+                                <h5><span><a data-toggle="collapse" href="#reviewList" target="_self" aria-expanded="false" aria-controls="reviewList">See all ></a></span></h5>
+                            </div>
+                            <div class="collapse" id="reviewList">
+                                <div ng-show="model.userreviews" ng-repeat="review in model.userreviews" class="subsection">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading"><h3>{{review.movieName}}</h3></div>
+                                    <div class="panel-body">
+                                        <div class="star-ratings-css">
+                                            <div class="star-ratings-css-top" ng-model="rating" ng-style="{'width':{{review.rating}}*(100/5)}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                            <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                        </div>
+                                        <div style="align-content: center">{{review.text}}</div>
+                                        <div style="align-content: center">Posted On: {{review.posted | date:'fullDate'}}</div>
+                                    </div>
+                                </div>
+                                <!--<div class="panel-default">{{review.movieName}}</div>-->
+                                <!--<div class="star-ratings-css">-->
+                                <!--<div class="star-ratings-css-top" ng-model="rating" ng-style="{'width':{{review.rating}}*(100/5)}"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>-->
+                                <!--<div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>-->
+                                <!--</div>-->
+                                <!--<div style="align-content: center">{{review.text}}</div>-->
+                                <!--<div style="align-content: center">Posted On: {{review.posted | date:'fullDate'}}</div>-->
+
+                            </div></div>
+                        </div>
+
+                        <div ng-hide="model.userreviews" class="profile-section">
+                            <h1 class="profile-section-header">Your Reviews</h1>
+                            <p>Loved or hated a movie or TV show? Write a review and share it with others!</p>
+                        </div>
+
+                        <div class="profile-section">
+                            <h1 class="profile-section-header">Likes</h1>
+                            <div  ng-show="model.likedmovies">
+
+                            <p>See {{model.likedmovies.length}} likes</p>
+                            <div class="see-more">
+                                <h5><span><a data-toggle="collapse" href="#likesList" target="_self" aria-expanded="false" aria-controls="likesList">See all ></a></span></h5>
+                            </div>
+                            <div class="collapse" id="likesList"><div class="row subsection" ng-repeat="movie in model.likedmovies">
+                                <div class="col-sm-4 hidden-xs">
+                                    <img src="{{movie.poster_path}}"/>
+                                </div>
+                                <div class="col-sm-8 col-xs-12">
+                                    <a href="#!/movie/{{movie.id}}"> <span style="font-size: 20px">{{movie.title}} </span> </a>
+                                    <span style="font-size: 20px">({{movie.release_date.split("-")[0]}})</span>
+                                    <p>{{movie.vote_average}} <span>({{movie.vote_count}} votes)</span></p>
+                                    <span style="font-size: inherit">{{movie.overview}}</span>
+                                    <div>
+                                        <strong>Genres:</strong>
+                                        <span ng-repeat="genre in movie.genres">
+                                        {{genre.name}}<span ng-show=" ! $last ">,</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+
+                            </div></div>
+                            <div ng-hide="model.likedmovies">
+                                <h1 style="text-align: center" > Your likes are currently empty</h1>
+                                <div style="align-content: center"><span class=""></span></div>
+                                <h3 style="text-align: center"> <a href="#/home">Explore</a> to get started</h3>
+                            </div>
+
+                        </div></div>
+                    </div>
+                    <div ng-include="'views/common/templates/profile-sidebar.view.client.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>
